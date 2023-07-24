@@ -1,11 +1,30 @@
-import Image from 'next/image';
-import React from 'react';
+// import Image from 'next/image';
+"use client"
+
+import { useEffect, useState } from 'react';
+import Allproducts from './Allproducts'
 
 const Mainbar = () => {
+const [products,setProducts]=useState([]);
+useEffect(()=>{
+    fetch('products.json')
+    .then(res=>res.json())
+    .then(data=>setProducts(data))
+},[])
     return (
-        <div>
-            <h1>This is main bar</h1>
-            <Image src='/images/flower.jfif' width={200} height={200} alt=''></Image>
+        <div className=''>
+            
+
+            <div className="grid grid-cols-4 gap-5">
+                {
+                    products.map(product => <Allproducts
+                        key={product.id}
+                        product={product}
+                        // handleAddToCart={handleAddToCart}
+                    ></Allproducts>)
+                }
+            </div>
+            
         </div>
     );
 };

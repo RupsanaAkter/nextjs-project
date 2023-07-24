@@ -4,7 +4,8 @@ import Baselayout from '../components/Baselayout'
 
 import Slider from '../components/Slider'
 import Mainbar from '../components/Mainbar'
-import Head from 'next/head'
+
+
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
      <Navbar></Navbar>
      <Baselayout><Slider></Slider></Baselayout>
      <Mainbar></Mainbar>
+    
     </main>
   )
 }
